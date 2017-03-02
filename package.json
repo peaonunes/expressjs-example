@@ -1,16 +1,19 @@
 {
-  "name": "express-example",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Example of express simple server.",
+  "description": "Simple server example.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ."
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peaonunes/expressjs-example.git"
   },
   "author": "peaonunes",
-  "private": true,
-  "dependencies": {
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0"
-  }
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peaonunes/expressjs-example/issues"
+  },
+  "homepage": "https://github.com/peaonunes/expressjs-example#readme"
 }
