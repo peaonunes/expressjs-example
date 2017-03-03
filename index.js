@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var whiteList = ["http://localhost:8000", "http://localhost:3000", "http://localhost:8080"];
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
-  if (whiteList.indexOf(req.header('Origin')) !== -1) {
+  if (whiteList.indexOf(req.header("Origin")) !== -1) {
     corsOptions = { origin: true };
   } else {
     corsOptions = { origin: false };
@@ -26,12 +26,12 @@ app.listen(3000, function () {
 });
 
 // Root route.
-app.get("/", function (req, res) {
+app.get("/", function (req, res, next) {
   res.status(200).send("Hey, I am responding to your request!");
 });
 
 // Example of HTML.
-app.get("/home", function (req, res) {
+app.get("/home", function (req, res, next) {
   res.status(200).send("<h1>I am a header.</h1>");
 });
 
@@ -43,7 +43,7 @@ const teams = {
 };
 
 // Route with parameters
-app.get("/teams/:id", function (req, res) {
+app.get("/teams/:id", function (req, res, next) {
   if(teams[req.params.id] !== undefined){
     res.status(200).send(teams[req.params.id]);
   } else {
@@ -61,11 +61,16 @@ const form = "<form method=\"post\" action=\"http://localhost:3000/addTeam\">"
   +"  <input type=\"submit\" value=\"Submit\">"
   +"</form>";
 
-app.get("/addTeam", function (req, res) {
+app.get("/addTeam", function (req, res, next) {
   res.status(200).send(form);
 });
 
 // POST method with parameters
-app.post("/addTeam", function (req, res) {
-  res.status.send("You have posted a team of name: "+req.body.name+" and foundation: "+req.body.foundation);
+app.post("/addTeam", function (req, res, next) {
+  res.status(200).send("You have posted a team of name: "+req.body.name+" and foundation: "+req.body.foundation);
 });
+
+// Cors in specific routes.
+/*app.get('/', cors(), function (req, res, next) {
+  res.status(200).send("CORS enabled for this route.");
+});*/
