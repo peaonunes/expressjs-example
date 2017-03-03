@@ -4,7 +4,8 @@
   "description": "Simple server example.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/peaonunes/expressjs-example/issues"
   },
-  "homepage": "https://github.com/peaonunes/expressjs-example#readme"
+  "homepage": "https://github.com/peaonunes/expressjs-example#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "nodemon": "^1.11.0"
+  }
 }
