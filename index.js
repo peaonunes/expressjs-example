@@ -1,7 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 const cors = require("cors");
 const app = express();
+
+app.use(session({
+    secret: "YOUR$UP3R$3CR3T",
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
